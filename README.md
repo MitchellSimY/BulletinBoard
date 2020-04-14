@@ -1,7 +1,7 @@
 # BulletinBoard
 Dynamically changing bulletin board with Google Sheets
 
-View here at: https://codepen.io/MitchYang/pen/pojjYvr
+View here at: https://codepen.io/MitchellSimY/pen/pojjYvr
 
 This project was to simply create a news and bulletin list for users to utlize easily. 
 The backend database is a dynmically changing Google Sheets site that is then turned into JSON.
