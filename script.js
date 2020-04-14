@@ -47,7 +47,7 @@ $(document).ready(function () {
                 '<h5 class="card-title">' + titleOfPost + '</h5>' +
                 '<p class="card-text">' + contentOfPost + '</p>' +
                 '</div>' +
-                '<div class="card-footer text-muted">' + postAlertType + "\nDate: " + date;
+                '<div class="card-footer text-muted">' + postAlertType + " || Date: " + date;
             
             // Locating the ID "dynamicBulletin", then hiding it, only to add it in again and fade it in for UX.
             $('#dynamicBulletin').hide().append(bullitenOutputHTML).fadeIn(1000);
