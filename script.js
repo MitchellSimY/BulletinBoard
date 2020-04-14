@@ -1,5 +1,5 @@
 
-
+$(document).ready(function () {
     $.getJSON("https://spreadsheets.google.com/feeds/list/1pG-K6QhY8kfJE4KXF3F9fR8NKmusL5nXhmVcs76H_hA/od6/public/values?alt=json", function (data) {
 
         var sheetData = data.feed.entry;
@@ -8,12 +8,16 @@
         for (i = 0; i < sheetData.length; i++) {
             var title = JSON.stringify(data.feed.entry[i]["gsx$title"]["$t"]);
             title = title.replace(/\"/g, "");
+
             var content = JSON.stringify(data.feed.entry[i]["gsx$bulletincontent"]["$t"]);
             content = content.replace(/\"/g, "");
+            
             var alertType = JSON.stringify(data.feed.entry[i]["gsx$alerttype"]["$t"]);
             alertType = alertType.replace(/\"/g, "");
+            
             var imageIcon = JSON.stringify(data.feed.entry[i]["gsx$imageicon"]["$t"]);
             imageIcon = imageIcon.replace(/\"/g, "");
+            
             var output = htmlOutput(title, content, alertType, imageIcon);
         };
 
@@ -29,9 +33,9 @@
                 '<p class="card-text">' + contentOfPost + '</p>' +
                 '</div>' +
                 '<div class="card-footer text-muted">' + postAlertType;
-            $('#dynamicBulletin').append(bullitenOutputHTML);
-            return bullitenOutputHTML;
-
+            //$(html).hide().appendTo("#dynamicBulletin").fadeIn(1000);
+            $('#dynamicBulletin').hide().append(bullitenOutputHTML).fadeIn(1000);
+            return;
         }
 
 
@@ -41,6 +45,7 @@
 
 
     });
+});
 
 
 
