@@ -27,15 +27,18 @@ $(document).ready(function () {
             
             var imageIcon = JSON.stringify(data.feed.entry[i]["gsx$imageicon"]["$t"]);
             imageIcon = imageIcon.replace(/\"/g, "");
-            
+
+            var date = JSON.stringify(data.feed.entry[i]["gsx$postdate"]["$t"]);
+            date = date.replace(/\"/g, "");
+
             // Passing the information into a function.
-            var output = htmlOutput(title, content, alertType, imageIcon);
+            var output = htmlOutput(title, content, alertType, imageIcon, date);
         };
 
         
 
         // Display function that takes four parameters of texts and image.
-        function htmlOutput(titleOfPost, contentOfPost, postAlertType, postImage) {
+        function htmlOutput(titleOfPost, contentOfPost, postAlertType, postImage, date) {
 
             // HTML markup to output onto webpage.
             var bullitenOutputHTML = '<div class="card" style="width: 20rem;">' +
@@ -44,7 +47,7 @@ $(document).ready(function () {
                 '<h5 class="card-title">' + titleOfPost + '</h5>' +
                 '<p class="card-text">' + contentOfPost + '</p>' +
                 '</div>' +
-                '<div class="card-footer text-muted">' + postAlertType;
+                '<div class="card-footer text-muted">' + postAlertType + "\nDate: " + date;
             
             // Locating the ID "dynamicBulletin", then hiding it, only to add it in again and fade it in for UX.
             $('#dynamicBulletin').hide().append(bullitenOutputHTML).fadeIn(1000);
